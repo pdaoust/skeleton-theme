@@ -1,0 +1,59 @@
+/* em2px and px2em both take a unit and convert it back and forth based on the
+ * base font size (using 1 as default base font size). These functions do not
+ * respect the user agent's font size, which is good, because it means the
+ * entire site scales up and down like em-based layouts should. */
+/* rhythm(fontsz, baseln, margintop, marginbottom, squash) applies a vertical
+ * rhythm to a block-level element. Arguments:
+ *
+ * 		fontsz: the font size, relative to the base font size
+ *
+ * 		baseln: the baseline grid unit that we should snap the element's
+ * 		line-height to
+ *
+ * 		margintop, marginbottom: the number of baseline units to add above and
+ * 		below the element. Note: this is *baseline units*, not multiples of the
+ * 		element's new line-height.
+ *
+ * 		squash: a float value specifying how much tolerance the line-height
+ * 		should have for squashing. 1 means the line-height will never be smaller
+ * 		than 1; <1 means it may be squashed; >1 means it must have extra
+ */
+/* collapse the top margin of the first child and the bottom margin of the second */
+/* inline-block fix for older browsers, in function and declaration form */
+.inlineblock {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+/* universal clearfix, in function and declaration form */
+.cf {
+  zoom: 1;
+}
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+/* blend one colour with another -- gives you compositing modes! Especially
+ * useful for creating opaque colours. Arguments:
+ *
+ * 		colour1: the base colour
+ *
+ * 		colour2: the colour to add to the base colour
+ *
+ * 		amount: the alpha of colour2; can be a float or percentage. If blank or
+ * 		false, it'll try to get the alpha value from colour2, and lastly,
+ * 		default to 50%
+ *
+ * 		blendmode: the blending or compositing mode
+ * 			alpha: the usual
+ * 			multiply: darken colour1 by colour2
+ * 			screen: lighten colour1 by colour2
+ * */
+h3 {
+  color: #bfbfbf;
+}

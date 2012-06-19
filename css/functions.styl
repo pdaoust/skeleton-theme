@@ -1,0 +1,158 @@
+/* em2px and px2em both take a unit and convert it back and forth based on the
+ * base font size (using 1 as default base font size). These functions do not
+ * respect the user agent's font size, which is good, because it means the
+ * entire site scales up and down like em-based layouts should. */
+
+em2px(a) {
+	fontsize = basefont is defined ? basefont : 1;
+	if unit(fontsize) == '%' {
+		fontsize = fontsize / 100;
+	}
+	unit(a * 16 * fontsize, px);
+}
+
+px2em(a) {
+	fontsize = basefont is defined ? basefont : 1;
+	if unit(fontsize) == '%' {
+		fontsize = fontsize / 100;
+	}
+	unit((a / 16 / fontsize), em);
+}
+
+/* rhythm(fontsz, baseln, margintop, marginbottom, squash) applies a vertical
+ * rhythm to a block-level element. Arguments:
+ *
+ * 		fontsz: the font size, relative to the base font size
+ *
+ * 		baseln: the baseline grid unit that we should snap the element's
+ * 		line-height to
+ *
+ * 		margintop, marginbottom: the number of baseline units to add above and
+ * 		below the element. Note: this is *baseline units*, not multiples of the
+ * 		element's new line-height.
+ *
+ * 		squash: a float value specifying how much tolerance the line-height
+ * 		should have for squashing. 1 means the line-height will never be smaller
+ * 		than 1; <1 means it may be squashed; >1 means it must have extra
+ */
+
+rhythm(fontsz = 1em, baseln = 1.5em, margintop = 1, marginbottom = 1, squash = 1) {
+	ratio = (fontsz / baseln) * squash;
+	if ratio <= 1 { // anything from 1 baseln unit down to ½ units stays in the same baseln grid
+		lineheight = baseln / fontsz;
+		if ratio <= 0.5 { // anything ½ baseln unit and below gets two lines per baseln unit
+			newbaseln = lineheight / fontsz;
+		} else {
+			newbaseln = baseln;
+		}
+	} else {
+		if ratio <= 2 { // anything above 1 baseln unit gets 2 baseln units per line
+			ratio = 2;
+		} else if ratio <= 3 { // or even 3!
+			ratio = 3;
+		} else if ratio <= 4 { // how about 4? But not 5; that's crazy.
+			ratio = 4;
+		}
+		lineheight = baseln * ratio / fontsz;
+		newbaseln = baseln / fontsz;
+	}
+	font-size: fontsz;
+	line-height: lineheight;
+	margin-top: unit(newbaseln * margintop, em);
+	margin-bottom: unit(newbaseln * marginbottom, em);
+}
+
+/* collapse the top margin of the first child and the bottom margin of the second */
+collapseinnermargins() {
+	> :first-child {
+		margin-top: 0;
+	}
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+/* inline-block fix for older browsers, in function and declaration form */
+inlineblock() {
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	\*display: inline;
+}
+.inlineblock {
+	inlineblock();
+}
+
+/* universal clearfix, in function and declaration form */
+clearfix() {
+	& {
+		zoom:1;
+	}
+	&:before, &:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+}
+.cf {
+	clearfix();
+}
+
+/* blend one colour with another -- gives you compositing modes! Especially
+ * useful for creating opaque colours. Arguments:
+ *
+ * 		colour1: the base colour
+ *
+ * 		colour2: the colour to add to the base colour
+ *
+ * 		amount: the alpha of colour2; can be a float or percentage. If blank or
+ * 		false, it'll try to get the alpha value from colour2, and lastly,
+ * 		default to 50%
+ *
+ * 		blendmode: the blending or compositing mode
+ * 			alpha: the usual
+ * 			multiply: darken colour1 by colour2
+ * 			screen: lighten colour1 by colour2
+ * */
+blend(colour1, colour2, amount = false, blendmode = 'alpha') {
+	red1 = red(colour1);
+	green1 = green(colour1);
+	blue1 = blue(colour1);
+	alpha1 = alpha(colour1);
+	red2 = red(colour2);
+	green2 = green(colour2);
+	blue2 = blue(colour2);
+	alpha2 = alpha(colour2);
+	if !amount || amount == 1 {
+		if alpha2 > 0 && alpha2 < 1 {
+			amount = alpha2;
+			alpha2 = 1;
+		} else {
+			amount = .5;
+		}
+	}
+	if unit(amount) == '%' {
+		amount = unit(amount / 100, '');
+	}
+	if blendmode == 'multiply' { // don't know how to deal with alpha yet
+		red2 = red1 * red2 / 255;
+		green2 = green1 * green2 / 255;
+		blue2 = blue1 * blue2 / 255;
+	} else if blendmode == 'screen' {
+		red2 = 255 - ((255 - red1) * (255 - red2) / 255);
+		green2 = 255 - ((255 - green1) * (255 - green2) / 255);
+		blue2 = 255 - ((255 - blue1) * (255 - blue2) / 255);
+	}
+	reddiff = round((red2 - red1) * amount);
+	greendiff = round((green2 - green1) * amount);
+	bluediff = round((blue2 - blue1) * amount);
+	alphadiff = round((alpha2 - alpha1) * amount);
+	rgba(red1 + reddiff, green1 + greendiff, blue1 + bluediff, alpha1 + alphadiff);
+}
+
+// why is alpha and amount not working together?
+h3 {
+	color: blend(#FFF, rgba(0, 0, 0, .5), .25);
+}
