@@ -1,21 +1,42 @@
+@import 'stylus-helpers/blend'
+
 ////// Text
-basefont = 1em;
-baseline = 1.5em;
-serif-stack = Georgia, Times, "Times New Roman", serif;
-sanserif-stack = Verdana, Helvetica, Arial, sanserif;
-mono-stack = Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+basefontsize = 1em;
+baselinesize = 1.5em;
+baseindentsize = baselinesize;
+serif-font-stack = Georgia, Times, "Times New Roman", serif;
+sanserif-font-stack = Verdana, Helvetica, Arial, sanserif;
+mono-font-stack = Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+
+////// Layout
+grid-gutter = (baseindentsize / 2);
+column-gutter = grid-gutter;
 
 ////// Colours
 black = #333;
 white = #fff;
+gray = blend(white, black);
+shading-adjust = 30%;
 
 // Colour assignments
-link = #00f;
-link-hover = #33f;
-link-active = #f00;
-link-visited = #551a8b;
+focus-color = #f30; /* for focus and hover states */
+current-color = green; /* for indicating the current context */
+
+body-bg-color = white;
+page-bg-color = body-bg-color;
+aside-bg-color = blend(white, black, .15);
+
+link-color = #00f;
+link-hover-color = focus-color;
+link-active-color = #f00;
+link-visited-color = #551a8b;
+
+button-color = blend(white, black, .1);
+input-border-color = darken(button-color, shading-adjust);
+
+// shadows
 shadow-strength = .2;
-shadow = rgba(black, shadow-strength);
-shadow-rgb = blend(black, white, shadow-strength);
-body-color = white;
-page-color = white;
+shadow-color = rgba(#000, shadow-strength);
+shadow-color-rgb = blend(page-bg-color, shadow-color, false, multiply);
+aside-shadow-color-rgb = blend(aside-bg-color, shadow-color, false, multiply);
+

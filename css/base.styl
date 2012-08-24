@@ -1,24 +1,70 @@
 body, button, input, select, textarea {
+	font-family: serif-font-stack;
 	color: black;
-	font-family: serif-stack;
-	rhythm: basefont baseline 0 0;
+	rhythm: basefontsize baselinesize 0 0;
 }
 
-/* Headings */
+/* Rules */
 hr {
 	background-color: shadow-rgb;
 	background-color: shadow;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+	margin-bottom: baselinesize;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5 {
+	font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: sanserif-font-stack;
+}
+h1 {
+	rhythm: 2.4em;
+}
+h2, aside h1, .excerpts article h1 {
+	rhythm: 2em;
+}
+h3, aside h2, .excerpts article h2 {
+	rhythm: 1.6em;
+}
+h4, aside h3, .excerpts article h3 {
+	rhythm: 1.2em;
+}
+h5, h6, aside h4, .excerpts article h4  {
+	rhythm: 1em;
+}
+h6 {
+	font-weight: normal;
+	font-style: italic;
+}
+
+/* Links */
+a {
+	color: link-color;
+}
+a:hover {
+	color: link-hover-color;
+}
+a:visited {
+	color: link-visited-color;
+}
+a:active {
+	@extend .pushbutton;
+	color: link-active-color;
+}
+a:focus {
+	color: focus-color;
+	outline: thin dotted focus-color;
 }
 
 /* Text elements */
-p {
-	margin-bottom: 1.5em;
+p, ul, ol, dl, blockquote, address {
+	rhythm: basefontsize;
 }
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin-left: baseindentsize * 2;
 }
 ul {
 	list-style: disc;
@@ -28,13 +74,14 @@ ol {
 }
 ul ul, ol ol, ul ol, ol ul {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: baseindentsize;
+	list-style: circle;
 }
 dt {
 	font-weight: bold;
 }
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 baseindentsize baselinesize;
 }
 b, strong {
 	font-weight: bold;
@@ -42,18 +89,15 @@ b, strong {
 dfn, cite, em, i {
 	font-style: italic;
 }
-blockquote {
-	margin: 0 1.5em;
-}
-address {
-	margin: 0 0 1.5em;
+blockquote, address {
+	margin-left: baseindentsize; margin-right: baseindentsize;
 }
 pre, code, kbd, tt, var {
-	font-family: mono-stack;
+	font-family: mono-font-stack;
 }
 pre {
 	background: shadow;
-	padding: basefont;
+	padding: basefontsize;
 	overflow: auto;
 	max-width: 100%;
 }
@@ -61,15 +105,14 @@ code, kbd, tt, var {
 	font: 15px
 }
 abbr, acronym {
-	border-bottom: 1px dotted #666;
+	border-bottom: 1px dotted gray;
 	cursor: help;
 }
 mark, ins {
 	background: #fff9c0;
 	text-decoration: none;
 }
-sup,
-sub {
+sup, sub {
 	font-size: 75%;
 	height: 0;
 	line-height: 0;
@@ -91,157 +134,125 @@ big {
 figure {
 	margin: 0;
 }
+
+/* Tables */
 table {
-	margin: 0 0 1.5em;
+	margin: baseline 0;
 	width: 100%;
 }
 th {
 	font-weight: bold;
 }
-button,
-input,
-select,
-textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
-	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
-}
-button,
-input {
+
+/* Form elements */
+button, input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
 }
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid #ccc;
-	border-color: #ccc #ccc #bbb #ccc;
-	border-radius: 3px;
-	background: #fafafa; /* Old browsers */
-	background: -moz-linear-gradient(top,  #fafafa 60%, #e6e6e6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#fafafa), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* IE10+ */
-	background: linear-gradient(top,  #fafafa 60%,#e6e6e6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
-	box-shadow: inset 0 2px 1px #fff;
-	color: rgba(0,0,0,.8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.4rem;
-	padding: 1.12em 1.5em .88em;
-	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+button, .button, input, select, textarea {
+	box-sizing: border-box;
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+	border: .0625em solid transparent; /* 1px, but relative to font size */
+	border-radius: 0.25em;
+	&:focus {
+		shadeborder(focus-color, shading-adjust, concave);
+	}
+	padding: 0 baselinesize - basefontsize;
+	line-height: baselinesize - .125em; /* removes 1 relative px on top/bottom to make it fit within baseline */
 }
-button:hover,
-html input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	background: #f5f5f5; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f5f5f5 60%, #dcdcdc 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#f5f5f5), color-stop(100%,#dcdcdc)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* IE10+ */
-	background: linear-gradient(top,  #f5f5f5 60%,#dcdcdc 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
-	border-color: #bbb #bbb #aaa #bbb;
+
+input, textarea {
+	/* really ought to change this to input:not([type=radio], [type=checkbox]),
+	 * but can't do it until IE8 dies */
+	color: lighten(black, shading-adjust);
+	shadeborder(input-border-color, shading-adjust, concave);
+	&:focus {
+		color: black;
+	}
 }
-button:focus,
-html input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-html input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb #bbb;
-	box-shadow: inset 0 2px 3px rgba(0,0,0,.15);
-	box-shadow: inset 0 2px 2px rgba(0,0,0,.15);
-}
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
+	/* simpler to just override the two types of input that aren't either
+	 * buttons or text widgets, rather than specifying all the new HTML5 input
+	 * types in the previous two selectors */
 	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
+	border: none;
 	padding: 0; /* Addresses excess padding in IE8/9 */
 }
-input[type="search"] {
+button, .button, input[type="button"], input[type="reset"], input[type="submit"] {
+	// colours
+	button-highlight-color = lighten(button-color, shading-adjust);
+	button-shadow-color = darken(button-color, shading-adjust);
+	// it looks better if focus isn't darkened by quite so much
+	focus-shading-adjust = (shading-adjust / 2);
+
+
+	// border style
+	border: 1px solid input-border-color;
+	shadeborder: input-border-color shading-adjust;
+
+	// button face style
+	background: button-color; /* Old browsers */
+	background: linear-gradient(top, button-highlight-color 0%, button-shadow-color 100%); /* W3C */
+
+	// text and other junk
+	color: black;
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+
+	&:hover, &:focus {
+		button-hover-color = darken(button-color, focus-shading-adjust);
+		button-highlight-color = lighten(button-hover-color, focus-shading-adjust);
+		button-shadow-color = darken(button-hover-color, focus-shading-adjust);
+
+		background: button-hover-color; /* Old browsers */
+		background: linear-gradient(top, button-highlight-color 0%, button-shadow-color 100%);
+	}
+
+	&:hover {
+		button-hover-border-color = darken(input-border-color, focus-shading-adjust);
+		shadeborder: button-hover-border-color shading-adjust;
+	}
+
+	&:focus {
+		shadeborder: focus-color shading-adjust;
+	}
+
+	&:active {
+		@extend .pushbutton;
+		shadeborder: link-active-color shading-adjust;
+	}
+
+	font-family: sanserif-font-stack;
+}
+
+input[type="search"], input.search {
 	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
 	-moz-box-sizing: content-box;
 	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
 	box-sizing: content-box;
+	border-radius: 1em;
 }
 input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
 	-webkit-appearance: none;
 }
-button::-moz-focus-inner,
-input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+button::-moz-focus-inner, input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
 	border: 0;
 	padding: 0;
 }
-input[type=text],
-textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+
+.nobutton, .nobutton:active, .nobutton:hover, .nobutton:focus {
+	border: none;
+	line-height: baselinesize;
+	padding: 0 .25em;
+	background: none;
 }
-input[type=text]:focus,
-textarea:focus {
-	color: #111;
-}
-input[type=text] {
-	padding: 3px;
-}
+
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
-}
-
-/* Links */
-a {
-	color: royalblue;
-}
-a:visited {
-	color: purple;
-}
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
-}
-
-/* Alignment */
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
-.aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
-}
-
-/* Text meant only for screen readers */
-.assistive-text {
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-}
-
-/* list without formatting */
-.nolist {
-	list-style: none;
-	padding-left: 0;
-	margin-left: 0;
 }
 

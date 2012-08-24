@@ -1,0 +1,951 @@
+@charset "UTF-8";
+/*
+Theme Name: _s
+Theme URI: https://wpcom-themes.svn.automattic.com/_s/
+Author: Automattic
+Author URI: http://automattic.com/
+Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Version: 1.1-wpcom
+License: GNU General Public License
+License URI: license.txt
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+.inlineblock {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+}
+.cf,
+.clearfix {
+  zoom: 1;
+}
+.cf:before,
+.clearfix:before,
+.cf:after,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.cf:after,
+.clearfix:after {
+  clear: both;
+}
+.cflite,
+.clearfixlite {
+  overflow: hidden;
+}
+.pushbutton,
+a:active,
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+  position: relative;
+  top: 0.0625em;
+  left: 0;
+}
+.alignleft {
+  float: left;
+  margin-right: 1.5em;
+}
+.alignright {
+  float: right;
+  margin-left: 1.5em;
+}
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+.assistive-text {
+  clip: rect(1px 1px 1px 1px);
+/* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.accessible-hidden {
+  clip: rect(1px 1px 1px 1px);
+/* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.list-nostyle,
+.list-float,
+.list-inlineblock,
+.list-inline,
+#site-header-menu,
+#site-footer-menu,
+#site-header-menu .sub-menu,
+#site-footer-menu .sub-menu {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.list-float > li {
+  float: left;
+}
+.list-inlineblock > li {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: -0.25em;
+}
+.list-inlineblock > li:last-child {
+  margin-right: 0;
+}
+.list-inline > li {
+  display: inline;
+}
+.list-inline > li:after {
+  content: ', ';
+}
+.list-inline > li:last-child:after {
+  content: none;
+}
+.list-extra-margins li {
+  margin-bottom: 1.5em;
+}
+.island {
+  background-color: aside-color;
+  margin: 1.5em 1.5em;
+  padding: 1.5em baselindentsize;
+}
+.island > :first-child {
+  margin-top: 0;
+}
+.island > :last-child {
+  margin-bottom: 0;
+}
+.column-container {
+  zoom: 1;
+}
+.column-container:before,
+.column-container:after {
+  content: "";
+  display: table;
+}
+.column-container:after {
+  clear: both;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+html {
+  overflow-y: scroll;
+/* Keeps page centred in all browsers regardless of content height */
+  -webkit-text-size-adjust: 100%;
+/* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+  -ms-text-size-adjust: 100%;
+/* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+  background: body-color;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+/* tables still need 'cellspacing="0"' in the markup */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+blockquote,
+q {
+  quotes: "" "";
+}
+a {
+  color: #00f;
+}
+a:hover,
+a:focus {
+  color: #66f;
+}
+a:visited {
+  color: #551a8b;
+}
+a:active {
+  color: #f00;
+}
+a:focus {
+  outline: thin dotted #66f;
+}
+a:hover,
+a:active {
+/* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
+  outline: 0;
+}
+a img {
+  border: 0;
+}
+input,
+textarea {
+  outline: none;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  color: #333;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+hr {
+  background-color: shadow-rgb;
+  background-color: shadow;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: bold;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Verdana, Helvetica, Arial, sanserif;
+}
+h1 {
+  font-size: 2.4em;
+  line-height: 1.25em;
+  margin-top: 0.625em;
+  margin-bottom: 0.625em;
+}
+h2,
+aside h1,
+.excerpts article h1 {
+  font-size: 2em;
+  line-height: 1.5em;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+h3,
+aside h2,
+.excerpts article h2 {
+  font-size: 1.6em;
+  line-height: 1.875em;
+  margin-top: 0.9375em;
+  margin-bottom: 0.9375em;
+}
+h4,
+aside h3,
+.excerpts article h3 {
+  font-size: 1.2em;
+  line-height: 1.25em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+h5,
+h6,
+aside h4,
+.excerpts article h4 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+h6 {
+  font-weight: normal;
+  font-style: italic;
+}
+a {
+  color: #00f;
+}
+a:hover {
+  color: #f30;
+}
+a:visited {
+  color: #551a8b;
+}
+a:active {
+  color: #f00;
+}
+a:focus {
+  color: #f30;
+  outline: thin dotted #f30;
+}
+p,
+ul,
+ol,
+dl,
+blockquote,
+address {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+ul,
+ol {
+  margin-left: 3em;
+}
+ul {
+  list-style: disc;
+}
+ol {
+  list-style: decimal;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+  list-style: circle;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0 1.5em 1.5em;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+blockquote,
+address {
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+pre,
+code,
+kbd,
+tt,
+var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+pre {
+  background: shadow;
+  padding: 1em;
+  overflow: auto;
+  max-width: 100%;
+}
+code,
+kbd,
+tt,
+var {
+  font: 15px;
+}
+abbr,
+acronym {
+  border-bottom: 1px dotted #999;
+  cursor: help;
+}
+mark,
+ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+sup,
+sub {
+  font-size: 75%;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  bottom: 1ex;
+}
+sub {
+  top: 0.5ex;
+}
+small {
+  font-size: 75%;
+}
+big {
+  font-size: 125%;
+}
+figure {
+  margin: 0;
+}
+table {
+  margin: baseline 0;
+  width: 100%;
+}
+th {
+  font-weight: bold;
+}
+button,
+input {
+  line-height: normal;
+/* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+  *overflow: visible;
+/* Corrects inner spacing displayed oddly in IE6/7 */
+}
+button,
+.button,
+input,
+select,
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+/* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+  font-size: 100%;
+/* Corrects font size not being inherited in all browsers */
+  vertical-align: baseline;
+/* Improves appearance and consistency in all browsers */
+  *vertical-align: middle;
+/* Improves appearance and consistency in all browsers */
+  border: 0.0625em solid transparent;
+/* 1px, but relative to font size */
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  padding: 0 0.5em;
+  line-height: 1.375em;
+/* removes 1 relative px on top/bottom to make it fit within baseline */
+}
+button:focus,
+.button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #b32400 #f30 #ff704d;
+}
+input,
+textarea {
+/* really ought to change this to input:not([type=radio], [type=checkbox]),
+	 * but can't do it until IE8 dies */
+  color: #707070;
+  border-color: #747474 #a5a5a5 #c0c0c0;
+}
+input:focus,
+textarea:focus {
+  color: #333;
+}
+input[type="checkbox"],
+input[type="radio"] {
+/* simpler to just override the two types of input that aren't either
+	 * buttons or text widgets, rather than specifying all the new HTML5 input
+	 * types in the previous two selectors */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+/* Addresses box sizing set to content-box in IE8/9 */
+  border: none;
+  padding: 0;
+/* Addresses excess padding in IE8/9 */
+}
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: 1px solid #a5a5a5;
+  border-color: #c0c0c0 #a5a5a5 #747474;
+  background: #ebebeb;
+/* Old browsers */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f1f1f1), color-stop(1, #a5a5a5));
+  background: -webkit-linear-gradient(top, #f1f1f1 0%, #a5a5a5 100%);
+  background: -moz-linear-gradient(top, #f1f1f1 0%, #a5a5a5 100%);
+  background: -o-linear-gradient(top, #f1f1f1 0%, #a5a5a5 100%);
+  background: -ms-linear-gradient(top, #f1f1f1 0%, #a5a5a5 100%);
+  background: linear-gradient(top, #f1f1f1 0%, #a5a5a5 100%);
+/* W3C */
+  color: #333;
+  cursor: pointer;
+/* Improves usability and consistency of cursor style between image-type 'input' and others */
+  -webkit-appearance: button;
+/* Corrects inability to style clickable 'input' types in iOS */
+  font-family: Verdana, Helvetica, Arial, sanserif;
+}
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+button:focus,
+.button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+  background: #c8c8c8;
+/* Old browsers */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #d0d0d0), color-stop(1, #aaa));
+  background: -webkit-linear-gradient(top, #d0d0d0 0%, #aaa 100%);
+  background: -moz-linear-gradient(top, #d0d0d0 0%, #aaa 100%);
+  background: -o-linear-gradient(top, #d0d0d0 0%, #aaa 100%);
+  background: -ms-linear-gradient(top, #d0d0d0 0%, #aaa 100%);
+  background: linear-gradient(top, #d0d0d0 0%, #aaa 100%);
+}
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+  border-color: #afafaf #8c8c8c #626262;
+}
+button:focus,
+.button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+  border-color: #ff704d #f30 #b32400;
+}
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+  border-color: #ff4d4d #f00 #b30000;
+}
+input[type="search"],
+input.search {
+  -webkit-appearance: textfield;
+/* Addresses appearance set to searchfield in S5, Chrome */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+/* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+}
+input[type="search"]::-webkit-search-decoration {
+/* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+  -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+/* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+  border: 0;
+  padding: 0;
+}
+.nobutton,
+.nobutton:active,
+.nobutton:hover,
+.nobutton:focus,
+input.searchform-submit,
+input.searchform-submit:active,
+input.searchform-submit:focus,
+input.searchform-submit:hover {
+  border: none;
+  line-height: 1.5em;
+  padding: 0 0.25em;
+  background: none;
+}
+textarea {
+  overflow: auto;
+/* Removes default vertical scrollbar in IE6/7/8/9 */
+  vertical-align: top;
+/* Improves readability and alignment in all browsers */
+  width: 98%;
+}
+/* =Layout
+----------------------------------------------- */
+/* =Menu
+----------------------------------------------- */
+#site-header-menu .sub-menu,
+#site-footer-menu .sub-menu {
+  margin: 0 0 0 1.5em;
+}
+/* Small menu */
+.menu-toggle {
+  cursor: pointer;
+}
+.main-small-navigation .menu {
+  display: none;
+}
+/* =Content
+----------------------------------------------- */
+.hentry {
+  margin: 1.5em 0;
+}
+.entry-meta {
+  clear: both;
+}
+.byline {
+  display: none;
+}
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0;
+}
+.page-links {
+  clear: both;
+  margin: 1.5em 0;
+}
+/* =Asides
+----------------------------------------------- */
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}
+/* =Media
+----------------------------------------------- */
+.site-header img,
+.entry-content img,
+.comment-content img,
+.widget img {
+  max-width: 100%;
+/* Fluid images for posts, comments, and widgets */
+}
+.site-header img,
+.entry-content img,
+img[class*="align"],
+img[class*="wp-image-"] {
+  height: auto;
+/* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+.site-header img,
+.entry-content img,
+img.size-full {
+  max-width: 100%;
+  width: auto;
+/* Prevent stretching of full-size images with height and width attributes in IE8 */
+}
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+.wp-caption {
+  border: 0.0625em solid #ccc;
+  max-width: 100%;
+}
+.wp-caption.aligncenter,
+.wp-caption.alignleft,
+.wp-caption.alignright {
+  margin-bottom: 1.5em;
+}
+.wp-caption img {
+  display: block;
+  margin: 1.2% auto 0;
+  max-width: 98%;
+}
+.wp-caption-text {
+  text-align: center;
+}
+#content .gallery {
+  margin-bottom: 1.5em;
+}
+#content .gallery a img {
+  border: none;
+  height: auto;
+  max-width: 90%;
+}
+#content .gallery dd {
+  margin: 0;
+}
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+/* =Navigation
+----------------------------------------------- */
+#content .site-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden;
+}
+#content .nav-previous {
+  float: left;
+  width: 50%;
+}
+#content .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+/* =Comments
+----------------------------------------------- */
+/* =Widgets
+----------------------------------------------- */
+.widget {
+  margin: 1.5em 0;
+}
+input.searchform-submit,
+input.searchform-submit:active,
+input.searchform-submit:focus,
+input.searchform-submit:hover {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0;
+  background: url("img/search.png") no-repeat 0.25em 0.25em;
+  text-indent: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+/* =Responsive layouts
+----------------------------------------------- */
+@media only screen and (max-width: 24em) {
+}
+@media only screen and (min-width: 1em) {
+}
+@media only screen and (max-width: 30em) {
+}
+@media only screen and (min-width: 24.0001em) and (max-width: 30em) {
+}
+@media only screen and (min-width: 24.0001em) {
+}
+@media only screen and (max-width: 59.9999em) {
+}
+@media only screen and (min-width: 30.0001em) and (max-width: 59.9999em) {
+}
+@media only screen and (min-width: 30.0001em) {
+  #site-header-menu {
+    background: #fff;
+  }
+  #site-header-menu > li {
+    zoom: 1;
+    display: inline;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+  }
+  #site-header-menu .sub-menu {
+    clip: rect(1px 1px 1px 1px);
+/* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-box-shadow: 0 0.25em 0.25em rgba(0,0,0,0.2);
+    box-shadow: 0 0.25em 0.25em rgba(0,0,0,0.2);
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    z-index: 99999;
+    margin: 0;
+    background: #fff;
+  }
+  #site-header-menu .sub-menu .sub-menu {
+    left: 100%;
+    top: 0;
+  }
+  #site-header-menu li {
+    position: relative;
+    white-space: nowrap;
+  }
+  #site-header-menu a {
+    display: block;
+    padding: 0 0.5em;
+    text-decoration: none !important;
+  }
+  #site-header-menu a:hover {
+    background: #f30 !important;
+    color: #fff;
+  }
+  #site-header-menu li:hover > .sub-menu,
+  #site-header-menu a:focus + .sub-menu {
+/* TODO: fix: with keyboard navigation, as soon as the focused link loses
+			 * focus, the submenu disappears */
+    clip: inherit;
+    position: absolute;
+  }
+  #site-header-menu .current_page_item > a,
+  #site-header-menu .current-menu-item > a {
+    background: #008000;
+    color: #fff;
+  }
+  #site-footer-menu > li {
+    zoom: 1;
+    display: inline;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+  }
+  #site-footer-menu > li {
+    padding: 0 1.5em 0 0;
+  }
+  #site-footer-menu .sub-menu {
+    margin: 0 0 0 1.5em;
+  }
+}
+@media only screen and (min-width: 60em) {
+}
+@media only screen and (max-width: 1000em) {
+}
+.unresponsive #site-header-menu {
+  background: #fff;
+}
+.unresponsive #site-header-menu > li {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+}
+.unresponsive #site-header-menu .sub-menu {
+  clip: rect(1px 1px 1px 1px);
+/* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-box-shadow: 0 0.25em 0.25em rgba(0,0,0,0.2);
+  box-shadow: 0 0.25em 0.25em rgba(0,0,0,0.2);
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  z-index: 99999;
+  margin: 0;
+  background: #fff;
+}
+.unresponsive #site-header-menu .sub-menu .sub-menu {
+  left: 100%;
+  top: 0;
+}
+.unresponsive #site-header-menu li {
+  position: relative;
+  white-space: nowrap;
+}
+.unresponsive #site-header-menu a {
+  display: block;
+  padding: 0 0.5em;
+  text-decoration: none !important;
+}
+.unresponsive #site-header-menu a:hover {
+  background: #f30 !important;
+  color: #fff;
+}
+.unresponsive #site-header-menu li:hover > .sub-menu,
+.unresponsive #site-header-menu a:focus + .sub-menu {
+/* TODO: fix: with keyboard navigation, as soon as the focused link loses
+			 * focus, the submenu disappears */
+  clip: inherit;
+  position: absolute;
+}
+.unresponsive #site-header-menu .current_page_item > a,
+.unresponsive #site-header-menu .current-menu-item > a {
+  background: #008000;
+  color: #fff;
+}
+.unresponsive #site-footer-menu > li {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+}
+.unresponsive #site-footer-menu > li {
+  padding: 0 1.5em 0 0;
+}
+.unresponsive #site-footer-menu .sub-menu {
+  margin: 0 0 0 1.5em;
+}

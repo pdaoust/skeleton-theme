@@ -1,0 +1,69 @@
+tablet-only() {
+}
+
+tablet-above() {
+	#site-header-menu {
+		list-inlineblock();
+		background: white;
+
+		.sub-menu {
+			accessible-hidden(false); // apply hidden style without creating .visible class
+			list-nostyle();
+			box-shadow: 0 .25em .25em rgba(0,0,0,shadow-strength);
+			position: absolute;
+			top: baselinesize;
+			left: 0;
+			z-index: 99999;
+			margin: 0;
+			background: white;
+
+			.sub-menu {
+				left: 100%;
+				top: 0;
+			}
+		}
+
+		li {
+			position: relative;
+			white-space: nowrap;
+		}
+
+		a {
+			display: block;
+			padding: 0 .5em;
+			text-decoration: none !important;
+
+			&:hover {
+				background: focus-color !important;
+				color: white;
+			}
+		}
+
+		li:hover > .sub-menu, a:focus + .sub-menu {
+			/* TODO: fix: with keyboard navigation, as soon as the focused link loses
+			 * focus, the submenu disappears */
+			accessible-hidden-visible: absolute;
+		}
+
+		.current_page_item > a, .current-menu-item > a {
+			background: current-color;
+			color: white;
+		}
+	}
+
+	#site-footer-menu {
+		list-inlineblock();
+
+		> li {
+			padding: 0 baseindentsize 0 0;
+		}
+
+		.sub-menu {
+			list-nostyle();
+			margin: 0 0 0 baseindentsize;
+		}
+	}
+}
+
+tablet-below() {
+}

@@ -14,16 +14,16 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
 ?><!DOCTYPE html>
 <!--[if IE 8]>
-<html <?php language_attributes(); ?> class="no-js ie8 ltie9">
+<html <?php language_attributes(); ?> class="no-js ie8 ie-lte8 unresponsive">
 <![endif]-->
 <!--[if IE 7 & (!IEMobile)]>
-<html <?php language_attributes(); ?> class="no-js ie7 ltie9 ltie8">
+<html <?php language_attributes(); ?> class="no-js ie7 ie-lte7 ie-lte8 unresponsive">
 <![endif]-->
 <!--[if IE 7 & IEMobile]>
-<html <?php language_attributes(); ?> class="no-js ie7 ie7mobile ltie9 ltie8">
+<html <?php language_attributes(); ?> class="no-js ie7 ie7mobile ie-lte7 ie-lte8 unresponsive">
 <![endif]-->
 <!--[if IE 6]>
-<html <?php language_attributes(); ?> class="no-js ie6 ltie9 ltie8 ltie7">
+<html <?php language_attributes(); ?> class="no-js ie6 ie-lte6 ie-lte7 ie-lte8 unresponsive">
 <![endif]-->
 <!--[if (gt IE 8)]><!-->
 <html <?php language_attributes(); ?> class="no-js">
