@@ -1,5 +1,17 @@
-mobile-above();
-mobile-large-above();
-tablet-above();
-desktop-below();
-desktop-above();
+@import 'media-queries/mobile';
+@import 'media-queries/mobile-large';
+@import 'media-queries/tablet';
+@import 'media-queries/desktop';
+
+.unresponsive {
+	mobile-above();
+	mobile-large-above();
+	tablet-above();
+	desktop-below();
+	desktop-above();
+}
+
+.unresponsive-mobile {
+	mobile-only();
+	mobile-above();
+}

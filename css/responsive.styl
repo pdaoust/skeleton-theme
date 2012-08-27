@@ -1,6 +1,6 @@
 // if you add breakpoints, remember to add them to unresponsive.styl as well!
 
-@import 'mobile';
+@import 'media-queries/mobile';
 @media only screen and (max-width: 24em) {
 	mobile-only();
 }
@@ -8,7 +8,7 @@
 	mobile-above();
 }
 
-@import 'mobile-large';
+@import 'media-queries/mobile-large';
 @media only screen and (max-width: 30em) {
 	mobile-large-below()
 }
@@ -19,7 +19,7 @@
 	mobile-large-above();
 }
 
-@import 'tablet';
+@import 'media-queries/tablet';
 @media only screen and (max-width: 59.9999em) {
 	tablet-below();
 }
@@ -30,7 +30,7 @@
 	tablet-above();
 }
 
-@import 'desktop';
+@import 'media-queries/desktop';
 @media only screen and (min-width: 60em) {
 	desktop-above();
 }

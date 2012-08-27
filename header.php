@@ -4,8 +4,8 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package _s
- * @since _s 1.0
+ * @package _skeleton
+ * @since _skeleton 1.0
  */
 
 // force conditional engine to start; no idea why this is required, but hey --
@@ -20,7 +20,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 <html <?php language_attributes(); ?> class="no-js ie7 ie-lte7 ie-lte8 unresponsive">
 <![endif]-->
 <!--[if IE 7 & IEMobile]>
-<html <?php language_attributes(); ?> class="no-js ie7 ie7mobile ie-lte7 ie-lte8 unresponsive">
+<html <?php language_attributes(); ?> class="no-js ie7 ie7mobile ie-lte7 ie-lte8 unresponsive-mobile">
 <![endif]-->
 <!--[if IE 6]>
 <html <?php language_attributes(); ?> class="no-js ie6 ie-lte6 ie-lte7 ie-lte8 unresponsive">
@@ -50,7 +50,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
 		// Add a page number if necessary:
 		if ( $paged >= 2 || $page >= 2 )
-			echo ' | ' . sprintf( __( 'Page %s', '_s' ), max( $paged, $page ) );
+			echo ' | ' . sprintf( __( 'Page %s', '_skeleton' ), max( $paged, $page ) );
 
 		?>
 	</title>
@@ -85,8 +85,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 		</hgroup>
 
 		<nav role="navigation" class="site-navigation site-header-navigation">
-			<h1 class="assistive-text"><?php _e( 'Menu', '_s' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', '_s' ); ?>"><?php _e( 'Skip to content', '_s' ); ?></a></div>
+			<h1 class="assistive-text"><?php _e( 'Menu', '_skeleton' ); ?></h1>
+			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', '_skeleton' ); ?>"><?php _e( 'Skip to content', '_skeleton' ); ?></a></div>
 
 			<?php wp_nav_menu( array(
 				'theme_location' => 'primary',
